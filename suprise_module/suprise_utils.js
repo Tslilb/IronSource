@@ -1,6 +1,6 @@
-const kanye_quote = require("./kanye-quote");
-const chuck_norris_joke = require("./chuck_norris_joke");
-const name_sum = require("./name-sum");
+const kanye_quote = require("./suprises/kanye-quote");
+const chuck_norris_joke = require("./suprises/chuck-norris-joke");
+const name_sum = require("./suprises/name-sum");
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
