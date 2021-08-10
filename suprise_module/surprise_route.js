@@ -3,7 +3,7 @@ var router = express.Router();
 const suprise=require("./suprise_utils");
 
 
-router.get("/", async (req, res, next) => {
+router.get("/surprise", async (req, res, next) => {
   try {
 
     const name = req.query.name;
