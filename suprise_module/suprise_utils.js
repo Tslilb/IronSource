@@ -16,6 +16,7 @@ function getRandomInt(max) {
 
 async function supriesMe(name,birth_year){
 
+    distribution["requests"]++;//TODO: should I update rquests only if it suceeded? 
     let joke=false;
     let quote=false;
     let sum=false;
@@ -23,7 +24,7 @@ async function supriesMe(name,birth_year){
     if(birth_year<=2000) joke=true;
     if(birth_year>2000 && !(name[0]=='A') && !(name[0]=='Z')) quote=true;
     if(!(name[0]=='Q')) sum=true;
-    distribution["requests"]++;
+    
 
     if(joke && sum){
         const rand=getRandomInt(2);
@@ -56,6 +57,10 @@ async function supriesMe(name,birth_year){
     else if (quote) {
         distribution["kanye-quote"]++;
         return await kanye_quote.randomQuote();
+    }
+    else if(sum){
+        distribution["name-sum"]++;
+        return name_sum.nameSum(name);
     }
     
 }
