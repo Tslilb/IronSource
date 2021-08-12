@@ -14,6 +14,11 @@ app.use(rout);
 app.use("/api",surprise);
 app.use("/api",status);
 
+app.use(function (err, req, res, next) {
+  console.error(err);
+  res.status(err.status || 500).send(err.message);
+});
+
 
 const server = app.listen(port, () => {
     console.log(`Server listen on port ${port}`);

@@ -7,7 +7,7 @@ router.get("/stats", (req, res, next) => {
   try {
 
     const data = status.getInfo();
-    res.json(data);
+    res.json(data).sendStatus(200);
   } catch (error) {
     next(error);
   }
