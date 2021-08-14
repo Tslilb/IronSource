@@ -1,15 +1,16 @@
 const axios = require("axios");
+const { QUOTE_API } = require("../config");
 
 
 
-async function randomQuote(){
+async function randomQuote() {
 
-    const qoute= await axios.get('https://api.kanye.rest')
+    const qoute = await axios.get(`${QUOTE_API}`)
 
-    return{
+    return {
         type: "kanye-quote",
-        result:qoute.data,
+        result: qoute.data,
     };
 }
 
-module.exports={randomQuote};
+module.exports = { randomQuote };
