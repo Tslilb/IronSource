@@ -11,7 +11,6 @@ async function personalHero(id) {
     return {
         personal_status: "you have a match with a superhero!",
         name : biography.data.name,
-       // first_appearance: biography.data.first-appearance,
         image:image.data.url,
         
     };

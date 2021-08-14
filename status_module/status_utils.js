@@ -18,6 +18,10 @@ function getInfo() {
                 count: distribution["kanye-quote"]
             },
             {
+                type: "superhero",
+                count: distribution["superhero"] 
+            },
+            {
                 type: "name-sum",
                 count: distribution["name-sum"]
             }

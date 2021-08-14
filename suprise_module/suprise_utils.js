@@ -44,6 +44,7 @@ async function supriesMe(name, birth_year) {
             return name_value;
         }
         else if (rand == 2 && hero) {
+            distribution["superhero"] ++;
             return superhero.personalHero(name_value);
         }
     }
@@ -59,6 +60,7 @@ async function supriesMe(name, birth_year) {
             return name_value;
         }
         else if (rand == 2 && hero) {
+            distribution["superhero"] ++;
             return superhero.personalHero(name_value);
         }
     }
