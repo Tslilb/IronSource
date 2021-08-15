@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const router = express.Router();
-const surprise = require("./suprise_module/surprise_route");
+const surprise = require("./surprise_module/surprise_route");
 const status = require("./status_module/status_route")
 const port = process.env.PORT || "80";
 
