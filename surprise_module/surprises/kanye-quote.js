@@ -3,11 +3,11 @@ const { QUOTE_API } = require("../config");
 
 
 
-function getName(){
+function getName() {
     return 'kanye-quote'
 }
 
-function isEligible(userParams){
+function isEligible(userParams) {
 
     return (userParams.birth_year > 2000 && !(userParams.name[0] == 'A') && !(userParams.name[0] == 'Z'))
 
@@ -16,7 +16,7 @@ function isEligible(userParams){
 async function getResponse(userParams) {
 
     const qoute = await axios.get(`${QUOTE_API}`)
-    const name= getName();
+    const name = getName();
 
     return {
         type: "kanye-quote",
@@ -24,4 +24,4 @@ async function getResponse(userParams) {
     };
 }
 
-module.exports = { getResponse,getName,isEligible };
+module.exports = { getResponse, getName, isEligible };

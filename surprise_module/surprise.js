@@ -9,7 +9,7 @@ const surpriseModules = [kanye_quote, chuck_norris_joke, name_sum, superhero];
 
 function logRequest(moduleName) {
     numRequests++;
-    const name=moduleName.getName();
+    const name = moduleName.getName();
     if (!distribution[name])
         distribution[name] = 0;
     distribution[name] = distribution[name] + 1;
@@ -18,13 +18,13 @@ function logRequest(moduleName) {
 function getStats() {
     const distrubutionStats = [];
 
-    for(let i=0; i<surpriseModules.length;i++){
-        let curr_name=surpriseModules[i].getName();
-        distrubutionStats.push({type: curr_name,count:0})
+    for (let i = 0; i < surpriseModules.length; i++) {
+        let curr_name = surpriseModules[i].getName();
+        distrubutionStats.push({ type: curr_name, count: 0 })
     }
-    for(let i=0; i<distrubutionStats.length;i++){
-        if(distribution[distrubutionStats[i].type]){
-            distrubutionStats[i].count=distribution[distrubutionStats[i].type];
+    for (let i = 0; i < distrubutionStats.length; i++) {
+        if (distribution[distrubutionStats[i].type]) {
+            distrubutionStats[i].count = distribution[distrubutionStats[i].type];
         }
     }
 
@@ -40,12 +40,12 @@ function getRandomInt(max) {
 
 // userParams is a dictionary containing the user params (birth year, name), can be expanded in the future easily.
 async function surpriesMe(name, birth_year) {
-    const userParams={name:name, birth_year:birth_year};
+    const userParams = { name: name, birth_year: birth_year };
     const eligibleModules = [];
 
     for (let i = 0; i < surpriseModules.length; i++) {
-        let bool =surpriseModules[i].isEligible(userParams);
-        if (bool)
+
+        if (surpriseModules[i].isEligible(userParams))
             eligibleModules.push(surpriseModules[i]);
     }
 
@@ -55,6 +55,6 @@ async function surpriesMe(name, birth_year) {
     return response;
 }
 
-module.exports = { surpriesMe,getStats };
+module.exports = { surpriesMe, getStats };
 
 

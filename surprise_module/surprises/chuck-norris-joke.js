@@ -4,11 +4,11 @@ const { JOKE_API } = require("../config");
 
 
 
-function getName(){
+function getName() {
     return 'chuck-norris-joke'
 }
 
-function isEligible(userParams){
+function isEligible(userParams) {
 
     return (userParams.birth_year <= 2000);
 
@@ -17,7 +17,7 @@ function isEligible(userParams){
 async function getResponse(userParams) {
 
     const jokes = await axios.get(`${JOKE_API}`)
-    const name=getName();
+    const name = getName();
     return {
         type: name,
         result: jokes.data.value,
@@ -25,4 +25,4 @@ async function getResponse(userParams) {
 }
 
 
-module.exports = { getResponse,getName,isEligible };
+module.exports = { getResponse, getName, isEligible };
