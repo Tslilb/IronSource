@@ -2,6 +2,7 @@ const kanye_quote = require("./surprises/kanye-quote");
 const chuck_norris_joke = require("./surprises/chuck-norris-joke");
 const name_sum = require("./surprises/name-sum");
 const superhero = require("./surprises/superhero");
+const { response } = require("express");
 let numRequests = 0;
 const distribution = {};
 const surpriseModules = [kanye_quote, chuck_norris_joke, name_sum, superhero];
@@ -50,9 +51,11 @@ async function surpriesMe(name, birth_year) {
     }
 
     const selectedModule = eligibleModules[getRandomInt(eligibleModules.length)];
-    response = await selectedModule.getResponse(userParams);
+    const response = await selectedModule.getResponse(userParams);
+    if(response){
     logRequest(selectedModule);
     return response;
+    }
 }
 
 module.exports = { surpriesMe, getStats };
