@@ -11,10 +11,12 @@ router.get("/surprise", async (req, res, next) => {
     if (!(name) || !(birth_year)) {
       //TODO : should i send diffrent error for name and for birth year ? 
       res.status(400).send('name and birth year are required')
+      
     }
-
+    else{
     const data = await suprise.supriesMe(name, birth_year);
     res.status(200).json(data);
+    }
   } catch (error) {
     next(error);
   }

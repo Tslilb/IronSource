@@ -2,13 +2,8 @@ const kanye_quote = require("./suprises/kanye-quote");
 const chuck_norris_joke = require("./suprises/chuck-norris-joke");
 const name_sum = require("./suprises/name-sum");
 const superhero = require("./suprises/superhero");
-const distribution = [];
-distribution.push("kanye-quote", "chuck-norris-joke", "name-sum", "supehero", "requests");
-distribution["kanye-quote"] = 0;
-distribution["chuck-norris-joke"] = 0;
-distribution["name-sum"] = 0;
-distribution["superhero"] = 0;
-distribution["requests"] = 0;
+var distribution = {"kanye-quote":0, "chuck-norris-joke":0, "name-sum":0, "superhero":0, "requests":0}
+
 
 
 
@@ -18,7 +13,7 @@ function getRandomInt(max) {
 
 async function supriesMe(name, birth_year) {
 
-    distribution["requests"]++;//TODO: should I update rquests only if it suceeded? 
+    distribution["requests"]++;
     let joke = false;
     let quote = false;
     let sum = false;
