@@ -22,8 +22,10 @@ function getStats() {
         let curr_name=surpriseModules[i].getName();
         distrubutionStats.push({type: curr_name,count:0})
     }
-    for(let i=0; i<distribution.length;i++){
-        distrubutionStats[i].count=distribution[distrubutionStats[i].type];
+    for(let i=0; i<distrubutionStats.length;i++){
+        if(distribution[distrubutionStats[i].type]){
+            distrubutionStats[i].count=distribution[distrubutionStats[i].type];
+        }
     }
 
     return {
