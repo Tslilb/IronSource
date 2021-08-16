@@ -1,26 +1,21 @@
 const express = require("express");
 const app = express();
 const router = express.Router();
-const surprise = require("./surprise_module/surprise_route");
-const status = require("./status_module/status_route")
+const surpriseRoutes = require("./surprise_module/api_routes");
 const port = process.env.PORT || "80";
 
+const route = router.get("/", (req, res) => res.send("Welcome to Tslil's app"));
+app.use(route);
 
-const rout = router.get("/", (req, res) => res.send("Welcome to Tslil's app"));
-
-//Middleware
-app.use(rout);
-//TODO : can I combine these two ? 
-app.use("/api", surprise);
-app.use("/api", status);
+app.use("/api", surpriseRoutes);
 
 app.use(function (err, req, res, next) {
   console.error(err);
   res.status(err.status || 500).send(err.message);
 });
 
-
 const server = app.listen(port, () => {
-  console.log(`Server listen on port ${port}`);
-}
-);
+  console.log(`Server listening on port ${port}`);
+});
+
+module.exports = server

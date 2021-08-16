@@ -1,32 +1,30 @@
 const axios = require("axios");
 const dotenv = require('dotenv');
+const name_sum = require('./name-sum');
+
 dotenv.config();
 const SUPERHERO_TOKEN = process.env.SUPERHERO_TOKEN;
-const { SUPERHERO_API } = require("../config");
-const name_sum=require('./name-sum');
+const SUPERHERO_API = 'https://superheroapi.com/api'
 
-
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
 
 function getName(){
-
     return 'superhero';
 }
 
-function isEligible(userParams){
-
-    return (name_sum.getResponse(userParams).sum <=731)
+function isEligible(userParams) {
+   return !userParams.name.includes(" ");
 }
 
-
-
 async function getResponse(userParams) {
-
-    const id=name_sum.getResponse(userParams).sum;
+    const id = getRandomInt(731);
     const biography = await axios.get(`${SUPERHERO_API}/${SUPERHERO_TOKEN}/${id}/biography`)
     const image = await axios.get(`${SUPERHERO_API}/${SUPERHERO_TOKEN}/${id}/image`)
-    const name=getName();
+    const name = getName();
     return {
-        type:name,
+        type: name,
         personal_status: "you have a match with a superhero!",
         name: biography.data.name,
         creator: biography.data.publisher,
@@ -36,4 +34,4 @@ async function getResponse(userParams) {
 }
 
 
-module.exports = { getResponse,getName,isEligible };
+module.exports = { getResponse, getName, isEligible };

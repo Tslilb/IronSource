@@ -14,7 +14,9 @@ function getResponse(userParams) {
     let sum = 0;
     for (let i = 0; i < userParams.name.length; i++) {
         let curr_letter = userParams.name[i].toLowerCase();
-        sum += dict[curr_letter];
+        if (curr_letter == ' ') continue;
+        let val= curr_letter.charCodeAt(0)-96;
+        sum+=val;
     }
     const name = getName();
 
