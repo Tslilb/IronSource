@@ -1,7 +1,7 @@
-const kanye_quote = require("./surprises/kanye-quote");
-const chuck_norris_joke = require("./surprises/chuck-norris-joke");
-const name_sum = require("./surprises/name-sum");
-const superhero = require("./surprises/superhero");
+const kanye_quote = require('./surprises/kanye-quote');
+const chuck_norris_joke = require('./surprises/chuck-norris-joke');
+const name_sum = require('./surprises/name-sum');
+const superhero = require('./surprises/superhero');
 
 let numRequests = 0;
 const distribution = {};

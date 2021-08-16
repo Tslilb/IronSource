@@ -1,4 +1,4 @@
-const axios = require("axios");
+const axios = require('axios');
 const QUOTE_API = 'https://api.kanye.rest'
 
 

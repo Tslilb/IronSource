@@ -63,7 +63,6 @@ describe('/api/surprise', () => {
             .get('/api/surprise?name=Quent%20Whatever')
             .end((err, response) => {
                 chai.expect(response).to.have.status(400);
-                // chai.expect(response.body).to.be.a('string');
             });
     });
 

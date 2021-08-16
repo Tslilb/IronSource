@@ -1,4 +1,4 @@
-const axios = require("axios");
+const axios = require('axios');
 const JOKE_API = 'https://api.chucknorris.io/jokes/random'
 
 

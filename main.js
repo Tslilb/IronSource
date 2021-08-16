@@ -1,7 +1,7 @@
-const express = require("express");
+const express = require('express');
 const app = express();
 const router = express.Router();
-const surpriseRoutes = require("./surprise_module/api_routes");
+const surpriseRoutes = require('./surprise_module/api_routes');
 const port = process.env.PORT || "80";
 
 const route = router.get("/", (req, res) => res.send("Welcome to Tslil's app"));

@@ -1,6 +1,6 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const surprise = require("./surprise");
+const surprise = require('./surprise');
 
 router.get("/stats", (req, res, next) => {
   try {
