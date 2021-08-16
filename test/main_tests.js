@@ -46,6 +46,27 @@ describe('/api/surprise', () => {
             });
     });
 
+    it('name sum', async () => {
+        chai.request(server)
+            .get('/api/surprise?name=Auent%20Whatever&birth_year=2001')
+            .end((err, response) => {
+                chai.expect(response).to.have.status(200);
+                chai.expect(response.body).to.be.deep.equal({
+                    type: 'name-sum',
+                    result: 163
+                });
+            });
+    });
+
+    it('query params are missing', async () => {
+        chai.request(server)
+            .get('/api/surprise?name=Quent%20Whatever')
+            .end((err, response) => {
+                chai.expect(response).to.have.status(400);
+                // chai.expect(response.body).to.be.a('string');
+            });
+    });
+
     after(() => {
         stub.restore();
     });
@@ -66,7 +87,7 @@ describe('/api/stats', () => {
             .end((err, res) => {
                 chai.expect(res).to.have.status(200);
                 chai.expect(res.body).to.be.deep.equal({
-                    requests: 2,
+                    requests: 3,
                     distribution: [
                         {
                             type: 'chuck-norris-joke',
@@ -74,6 +95,10 @@ describe('/api/stats', () => {
                         },
                         {
                             type: 'kanye-quote',
+                            count: 1
+                        },
+                        {
+                            type: 'name-sum',
                             count: 1
                         },
                     ]

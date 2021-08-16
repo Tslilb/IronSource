@@ -22,8 +22,7 @@ function getResponse(userParams) {
 
     return {
         type: name,
-        sum: sum,
-
+        result: sum,
     }
 
 }

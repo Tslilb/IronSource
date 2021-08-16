@@ -1,5 +1,7 @@
 const axios = require("axios");
-const { QUOTE_API } = require("../config");
+const QUOTE_API = 'https://api.kanye.rest'
+
+
 
 function getName() {
     return 'kanye-quote';

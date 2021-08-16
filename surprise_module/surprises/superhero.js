@@ -1,6 +1,6 @@
 const axios = require("axios");
 const dotenv = require('dotenv');
-const name_sum = require('./name-sum');
+
 
 dotenv.config();
 const SUPERHERO_TOKEN = process.env.SUPERHERO_TOKEN;

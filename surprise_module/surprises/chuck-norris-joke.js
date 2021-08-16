@@ -1,5 +1,6 @@
 const axios = require("axios");
-const { JOKE_API } = require("../config");
+const JOKE_API = 'https://api.chucknorris.io/jokes/random'
+
 
 function getName() {
     return 'chuck-norris-joke';
