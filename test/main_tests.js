@@ -1,7 +1,6 @@
-const chai = require("chai");
-const chaiHttp = require("chai-http");
-const { response } = require("express");
-const server=require("../main");
+const chai = require('chai');
+const chaiHttp = require('chai-http');
+const server = require('../main');
 const axios = require('axios');
 const MockAdapter = require('axios-mock-adapter');
 
@@ -18,7 +17,7 @@ describe('/api/surprise', () => {
 
     it('chuck norris joke', async () => {
         stub.onGet('https://api.chucknorris.io/jokes/random')
-            .replyOnce(200, { value: 'joke'});
+            .replyOnce(200, { value: 'joke' });
 
         chai.request(server)
             .get('/api/surprise?name=Quent%20Whatever&birth_year=1999')
@@ -33,7 +32,7 @@ describe('/api/surprise', () => {
 
     it('kayne quote', async () => {
         stub.onGet('https://api.kanye.rest')
-            .replyOnce(200, { quote: 'funny quote'});
+            .replyOnce(200, { quote: 'funny quote' });
 
         chai.request(server)
             .get('/api/surprise?name=Quent%20Whatever&birth_year=2001')

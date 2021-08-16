@@ -8,8 +8,8 @@ function getName() {
 }
 
 function isEligible(userParams) {
-    return userParams.birth_year > 2000 
-        && userParams.name[0] != 'A' 
+    return userParams.birth_year > 2000
+        && userParams.name[0] != 'A'
         && userParams.name[0] != 'Z';
 }
 

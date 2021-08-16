@@ -20,7 +20,7 @@ function getStats() {
     const distrubutionStats = [];
 
     for (let moduleName in distribution) {
-        distrubutionStats.push({type: moduleName, count: distribution[moduleName]});
+        distrubutionStats.push({ type: moduleName, count: distribution[moduleName] });
     }
 
     return {
