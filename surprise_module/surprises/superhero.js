@@ -10,12 +10,12 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
 
-function getName(){
+function getName() {
     return 'superhero';
 }
 
 function isEligible(userParams) {
-   return !userParams.name.includes(" ");
+    return !userParams.name.includes(" ");
 }
 
 async function getResponse(userParams) {
@@ -25,10 +25,11 @@ async function getResponse(userParams) {
     const name = getName();
     return {
         type: name,
-        personal_status: "you have a match with a superhero!",
-        name: biography.data.name,
-        creator: biography.data.publisher,
-        image: image.data.url,
+        result: {
+            name: biography.data.name,
+            creator: biography.data.publisher,
+            image: image.data.url,
+        },
 
     };
 }

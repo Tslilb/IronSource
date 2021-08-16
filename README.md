@@ -14,7 +14,7 @@
 >> * If you cloned this project via git - Create .env file, and in it create SUPERHERO_TOKEN environment variable to set to your token .
 >> * If you downloaded this project from a zip file - Set SUPERHERO_TOKEN environment variable on .env file with the token you generated.
 >2. Iniate project with the command : 
-     ```npm init ```
+     ```npm install ```
 >4. Run project with the command : 
     ```node main.js ```
 >5. The service will be available in your browser at localhost:80/
